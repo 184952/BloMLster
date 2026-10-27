@@ -1,0 +1,18 @@
+# AMD-GPU (RX 9070 XT / gfx1201) på Windows. Installer i egen venv:
+#   py -3.13 -m venv .venv-rocm
+#   .venv-rocm\Scripts\python -m pip install -r requirements-rocm.txt
+#   .venv-rocm\Scripts\rocm-sdk init
+--extra-index-url https://stable.repo.amd.com/rocm/whl-next/
+torch[device-gfx1201]==2.14.0+rocm10.1.0
+torchvision[device-gfx1201]==0.29.0a0+rocm10.1.0
+rocm[libraries,devel]==10.1.0
+scikit-learn
+numpy
+pandas<3  # 3.1 DLL blocked by Windows Smart App Control
+matplotlib
+seaborn
+pillow
+tqdm
+ipykernel
+gradio
+python-dotenv

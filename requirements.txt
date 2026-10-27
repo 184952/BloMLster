@@ -3,13 +3,14 @@ torch
 torchvision
 scikit-learn
 numpy
-pandas
+pandas<3  # 3.1 DLL blocked by Windows Smart App Control
 matplotlib
 seaborn
 pillow
 tqdm
 ipykernel
 gradio
+python-dotenv
 
 
  

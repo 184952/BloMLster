@@ -40,6 +40,9 @@ python -m ipykernel install --user --name ml-prosjekt
 # Start Jupyter
 jupyter lab
 ```
+for nvidia
+%pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+
 
 ## Navnekonvensjon for notebooks
 
@@ -75,3 +78,13 @@ Oppsummer viktigste funn og modellytelse her.
 ## Kilder
 
 torch https://pytorch.org/get-started/locally/
+
+
+
+## git
+
+git add .
+git commit -m " "
+git push -u origin main
+
+git pull
