@@ -70,3 +70,8 @@ https://www.kaggle.com/datasets/supriyoain/flower-classification?resource=downlo
 ## Resultater
 
 Oppsummer viktigste funn og modellytelse her.
+
+
+## Kilder
+
+torch https://pytorch.org/get-started/locally/
