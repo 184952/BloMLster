@@ -17,7 +17,7 @@ data/*/*
 !data/*/.gitkeep
 models/*
 !models/.gitkeep
-
+!models/flowernet.pt
 # IDE / OS
 .vscode/
 .idea/

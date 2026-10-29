@@ -58,7 +58,7 @@ Endringer i én del påvirker de andre: endrer vi bildestørrelsen i forbehandli
 
 **Datatype og kilde.** Dataene er RGB-bilder (JPG/PNG) av blomster, lagret med én mappe per art. Mappenavnet fungerer som label. Datasettet har **19 arter og 17 229 bilder** (kilde: `[legg inn kilde/lenke og lisens for datasettet]`). Artene er astilbe, bellflower, black-eyed susan, calendula, california poppy, carnation, common daisy, coreopsis, daffodil, dandelion, iris, lavender, lotus, magnolia, orchid, rose, sunflower, tulip og water lily.
 
-![fig_klasser.png](bilder/fig_klasser.png)
+![klassefordeling.png](reports/figures/klassefordeling.png)
 
 *Figur 1: Antall bilder per art. Lavender, lotus og orchid har klart færre bilder enn de øvrige.*
 
@@ -112,7 +112,7 @@ For å vite hva som er en god ytelse har vi to enkle baselines som kan regnes ut
 
 Vi har trent en enkel CNN fra bunnen, *FlowerNet*, med fire konvolusjonsblokker. Hver blokk består av en 3×3-konvolusjon, batch-normalisering, ReLU og max-pooling, med 32, 64, 128 og 256 filtre. Deretter følger global gjennomsnitts-pooling, dropout (0,3) og et lineært lag med 19 utganger. Modellen har ca. 0,39 millioner parametere. Vi bruker cross-entropy som tapsfunksjon og AdamW (læringsrate 10⁻³, weight decay 10⁻⁴), og trener i 15 epoker med batch-størrelse 64 på GPU.
 
-![fig_kurver.png](bilder/fig_kurver.png)
+![treningskurver.png](reports/figures/treningskurver.png)
 
 *Figur 2: Tap og accuracy per epoke for trening og validering.*
 
