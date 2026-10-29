@@ -9,16 +9,19 @@ from .config import MODELS_DIR
 
 
 class FlowerNet(nn.Module):
-    """Enkel CNN: fire konvolusjonsblokker (224 -> 14) og et lineært lag."""
+    """5 blokker hver med 2 konvolusjoner."""
 
     def __init__(self, num_classes):
         super().__init__()
 
         def block(i, o):
-            return nn.Sequential(nn.Conv2d(i, o, 3, padding=1), nn.BatchNorm2d(o), nn.ReLU(), nn.MaxPool2d(2))
+            return nn.Sequential(
+                nn.Conv2d(i, o, 3, padding=1), nn.BatchNorm2d(o), nn.ReLU(),
+                nn.Conv2d(o, o, 3, padding=1), nn.BatchNorm2d(o), nn.ReLU(),
+                nn.MaxPool2d(2))
 
-        self.features = nn.Sequential(block(3, 32), block(32, 64), block(64, 128), block(128, 256))  # 224 -> 14
-        self.classifier = nn.Sequential(nn.AdaptiveAvgPool2d(1), nn.Flatten(), nn.Dropout(0.3), nn.Linear(256, num_classes))
+        self.features = nn.Sequential(block(3, 32), block(32, 64), block(64, 128), block(128, 256), block(256, 384))  # 224 -> 7
+        self.classifier = nn.Sequential(nn.AdaptiveAvgPool2d(1), nn.Flatten(), nn.Dropout(0.3), nn.Linear(384, num_classes))
 
     def forward(self, x):
         return self.classifier(self.features(x))
