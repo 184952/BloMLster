@@ -236,7 +236,7 @@ t-SNE-plottet (figur 5) bekrefter bildet: de fleste arter danner egne, tydelige 
 
 *Figur 9: Skjermbilde av appen.*
 
-Appen startes med `python app.py`. Gradio lager da en midlertidig offentlig lenke (`share=True`). Den permanente versjonen ligger på `[lenke til Hugging Face Spaces eller video]`.
+Appen startes med `python app.py`. Gradio lager da en midlertidig offentlig lenke (`share=True`). [Se demovideo](https://youtu.be/5u2aSCRADPE)
 
 **Bruk av prediksjoner.** Prediksjonene er veiledende forslag, ikke fasit. Fordi brukeren ser tre forslag, har svaret nytte også når riktig art ikke er førstevalget (top-3 accuracy er 97,9 %).
 
