@@ -123,8 +123,7 @@ Vi har trent en enkel CNN fra bunnen, *FlowerNet*, med fire konvolusjonsblokker.
 | Tilfeldig gjetting              | 5,3 %                           | 5,3 %                           | 5,3 %                           | \-                              |
 | Majoritetsklasse (iris)         | \-                              | \-                              | ≈ 6,1 %                         | \-                              |
 | **FlowerNet (fra bunnen)**      | 70,8 %                          | 67,6 %                          | **66,3 %**                      | ca. 1,6 MB                      |
-| MobileNetV2 (transfer learning) | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
-| ResNet50 (transfer learning)    | `[ ]` | `[ ]` | `[ ]` | `[ ]` |
+
 
 *Tabell 2: Accuracy for baselines og modeller. Treningsverdier er fra siste epoke. Modellstørrelse er beregnet for 32-bits vekter.*
 
