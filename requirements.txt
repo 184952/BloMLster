@@ -9,7 +9,7 @@ seaborn
 pillow
 tqdm
 ipykernel
-gradio
+gradio<6.31
 python-dotenv
 
 

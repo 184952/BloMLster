@@ -1,25 +1,28 @@
-# ML-prosjekt
+# BloMLster
 
-Kort beskrivelse av prosjektet: hva skal predikeres/analyseres, og hvorfor.
+#Intro
 
-Målet med prosjektet er at min bestemor som elsker blomster og er redd for teknologi skal kunne bruke denne modell på en nettside på telefon peke på en blome i huset hennes og den skal bli gjenkjent
+Målet med prosjektet er at min bestemor som elsker blomster og er redd for teknologi skal kunne overkomme denne frykten ved å bruke det til å leke med blomster. 
 
 ## Mappestruktur
 
 ```
 ml-prosjekt/
 ├── data/
-│   ├── raw/          # Originaldata – aldri endre disse filene
-│   ├── interim/      # Mellomsteg i rensing/transformasjon
-│   ├── processed/    # Ferdig data klar for modellering
-│   └── external/     # Data fra tredjepartskilder
-├── notebooks/        # Jupyter notebooks (se navnekonvensjon under)
+│   └── data/           # Data fra tredjepartskilder
+│        └──flowers/     
+├── notebooks/          # Jupyter notebooks 
+│        └──01trening/
+│        └──02evaluering/        
 ├── src/              # Gjenbrukbar Python-kode (config, hjelpefunksjoner)
 ├── models/           # Trente/lagrede modeller
 ├── reports/
 │   └── figures/      # Genererte figurer
+├── requirements-rocm.txt
 ├── requirements.txt
 ├── .env.example
+├──app.py
+├──BloMLster_rapport
 └── README.md
 ```
 
@@ -31,8 +34,15 @@ python -m venv .venv
 .venv\Scripts\activate        # Windows
 # source .venv/bin/activate   # macOS/Linux
 
-# Installer avhengigheter
+# velg en av de 2 neste basert på din hardware
+
+# for Nvidia GPU
 pip install -r requirements.txt
+
+#for AMD GPU
+py -3.13 -m venv .venv-rocm
+.venv-rocm\Scripts\python -m pip install -r requirements-rocm.txt
+.venv-rocm\Scripts\rocm-sdk init
 
 # Registrer miljøet som Jupyter-kernel
 python -m ipykernel install --user --name ml-prosjekt
@@ -40,17 +50,7 @@ python -m ipykernel install --user --name ml-prosjekt
 # Start Jupyter
 jupyter lab
 ```
-for nvidia
-%pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 
-
-## Navnekonvensjon for notebooks
-
-`{nr}_{beskrivelse}.ipynb`, f.eks.:
-
-- `01_eda.ipynb` – utforskende dataanalyse
-- `02_preprocessing.ipynb` – rensing og feature engineering
-- `03_modeling.ipynb` – trening og evaluering
 
 ## Bruke `src/` i notebooks
 
@@ -65,28 +65,31 @@ df = pd.read_csv(RAW_DIR / "data.csv")
 
 ## Data
 
-Beskriv datakilde(r), hvordan de hentes, og eventuelle lisenser.
-lastet ned zip fil fra:
-https://www.kaggle.com/datasets/supriyoain/flower-classification?resource=download
+Hvordan få tak i data:
 
+last ned zip fil fra:
+https://www.kaggle.com/datasets/supriyoain/flower-classification?resource=download
+pakk ut og legg rot mappen i data. (data/flowers/artene)
+
+
+## Starte appen
+kjør app.py
+følg lenken i terminalen
 
 ## Resultater
+[Rapport](BloMLster_rapport.md)
+accuracy: 92.4%
 
-Oppsummer viktigste funn og modellytelse her.
+macro_f1: 91.6%
+
+top3: 97.9%
+
+![bilde av nettsiden](web.png)
 
 
 ## Kilder
 
-torch https://pytorch.org/get-started/locally/
+torch for kode og inspirasjon https://docs.pytorch.org/tutorials/beginner/basics/intro.html
 
+drøfting av strategier, kode og skriving claude code
 
-
-## git
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-
-git add .
-git commit -m " "
-git push -u origin main
-
-git pull

@@ -1,4 +1,4 @@
-# AMD-GPU (RX 9070 XT / gfx1201) på Windows. Installer i egen venv:
+
 #   py -3.13 -m venv .venv-rocm
 #   .venv-rocm\Scripts\python -m pip install -r requirements-rocm.txt
 #   .venv-rocm\Scripts\rocm-sdk init
@@ -14,5 +14,5 @@ seaborn
 pillow
 tqdm
 ipykernel
-gradio
+gradio<6.31
 python-dotenv
