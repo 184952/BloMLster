@@ -7,6 +7,7 @@ from src.data import eval_tf
 
 model, ckpt = load_model(device="cpu")
 classes = ckpt["classes"]
+species = ", ".join(c.replace("_", " ") for c in classes)  # black_eyed_susan -> black eyed susan
 
 @torch.no_grad()
 def predict(img):
@@ -19,4 +20,5 @@ gr.Interface(
     inputs=gr.Image(type="pil", label="Ta bilde av en blomst"),
     outputs=gr.Label(num_top_classes=3),
     title="BloMLster",
+    description=f"**Arter jeg kjenner til:** {species}",
 ).launch(share=True)
